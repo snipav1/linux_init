@@ -5,7 +5,7 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 
 #Install Zsh and ohmyzsh
 sudo apt install zsh -y
-install oh my zsh - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #Install nvim, clone nvim config and install plugins
 sudo apt install neovim -y
@@ -29,5 +29,7 @@ echo \
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
+echo "alias vim=nvim" >> ~/.zshrc
+echo "alias python=python3" >> ~/.zshrc
 #Reboot machine
 sudo reboot
