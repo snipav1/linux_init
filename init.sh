@@ -10,7 +10,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 #Install nvim, clone nvim config and install plugins
 sudo apt install neovim -y
 git clone https://github.com/snipav1/nvimconfig.git
-cp ~/nvimconfig/.config ~/
+cp -R ~/nvimconfig/.config ~/
 vim +'PlugInstall --sync' +qa
 sudo apt install python3-pip -y
 
@@ -28,6 +28,10 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+
+# Docker post installation
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 echo "alias vim=nvim" >> ~/.zshrc
 echo "alias python=python3" >> ~/.zshrc
